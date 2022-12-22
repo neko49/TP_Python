@@ -5,8 +5,8 @@ from airport import Airport
 
 class FlightMap :
     def __init__(self):
-        self.aeroports = []
-        self.flights = []
+        self.aeroports = [Airport]
+        self.flight = [Flight]
     
     def import_airports(self, csv_file : str ):
         import csv
@@ -25,8 +25,17 @@ class FlightMap :
             next(reader)  
             for row in reader:
                 src_code, dst_code, duration = row
-                flight = Flight(src_code, dst_code, float(duration))
-                self.flights.append(flight)
+                vol = Flight(src_code, dst_code, float(duration))
+                self.flight.append(vol)
+                
+    def airports(self):
+        return self.aeroports
+    
+    def flights(self):
+        return self.flight
+    
+    
+
     
     
         
